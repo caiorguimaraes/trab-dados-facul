@@ -27,9 +27,11 @@ def criar_dataframe_diario_2024():
         "EH": [],
         "GC": [],
         "GA": [],
-        "DS": []
+        "DS": [],
+        "Funcionários": []
     }
     
+    funcionarios_posto = [10]
     for i, mes in enumerate(df_mensal['Mês']):
         for dia in range(1, dias_no_mes[i] + 1):
             dados_diarios["Data"].append(f"2024-{i+1:02d}-{dia:02d}")  # Formato de data ano-mês-dia
@@ -40,6 +42,7 @@ def criar_dataframe_diario_2024():
             dados_diarios["GC"].append(df_mensal["GC"][i] / dias_no_mes[i] * fator_variação)
             dados_diarios["GA"].append(df_mensal["GA"][i] / dias_no_mes[i] * fator_variação)
             dados_diarios["DS"].append(df_mensal["DS"][i] / dias_no_mes[i] * fator_variação)
+            dados_diarios["Funcionários"].append(funcionarios_posto[0])
 
     df_diario = pd.DataFrame(dados_diarios)
     
